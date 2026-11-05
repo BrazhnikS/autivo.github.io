@@ -1,1 +1,270 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Умови користування — AUTIVO</title>
+<meta name="description" content="Умови користування додатком AUTIVO (Сервісна книга авто). Terms of Use of the AUTIVO app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#14181c;
+    --graphite-deep:#0e1115;
+    --paper:#f3f1ec;
+    --paper-line:#ddd8cd;
+    --ink:#1b1e22;
+    --ink-soft:#5f656d;
+    --chrome:#9aa3ad;
+    --chrome-dim:#636b74;
+    --bronze:#c58f42;
+    --bronze-deep:#8d6227;
+    --rule:#262c33;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--graphite);color:#e7eaee;
+    font:400 17px/1.65 "IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
 
+  .topbar{border-bottom:1px solid var(--rule)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .mark{font-family:"Oswald",sans-serif;font-weight:600;font-size:22px;letter-spacing:.14em;text-decoration:none;color:#fff}
+  .mark span{color:var(--bronze)}
+  .topnav{display:flex;gap:22px;font-size:14.5px}
+  .topnav a{color:var(--chrome);text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
+  .topnav a:hover,.topnav a:focus-visible{color:#fff;border-bottom-color:var(--bronze)}
+  .topnav a[aria-current="page"]{color:#fff;border-bottom-color:var(--bronze)}
+
+  .page{
+    padding:44px 0 72px;
+    background:linear-gradient(180deg,var(--graphite) 0%,var(--graphite-deep) 100%);
+  }
+  .doc{
+    background:var(--paper);color:var(--ink);
+    max-width:760px;margin:0 auto;border-radius:3px;
+    padding:34px 26px 44px;
+    box-shadow:0 30px 60px -32px rgba(0,0,0,.85);
+    border-top:5px solid var(--graphite);
+  }
+  @media (min-width:700px){.doc{padding:46px 56px 56px}}
+
+  .doc-head{border-bottom:1.5px solid var(--ink);padding-bottom:18px;margin-bottom:10px}
+  h1{
+    font-family:"Oswald",sans-serif;font-weight:500;
+    font-size:clamp(28px,5vw,38px);line-height:1.1;margin:0 0 10px;letter-spacing:.01em;
+  }
+  .meta{margin:0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-soft)}
+
+  .langbar{display:flex;gap:8px;margin:20px 0 4px}
+  .langbar button{
+    font:500 13.5px/1 "IBM Plex Sans",sans-serif;
+    background:transparent;color:var(--ink-soft);
+    border:1px solid var(--paper-line);border-radius:2px;
+    padding:8px 14px;cursor:pointer;
+  }
+  .langbar button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .langbar button:hover{border-color:var(--ink-soft)}
+
+  h2{
+    font-family:"IBM Plex Sans",sans-serif;font-weight:600;
+    font-size:19px;line-height:1.3;margin:34px 0 8px;
+  }
+  h2 .n{font-family:"IBM Plex Mono",monospace;font-weight:500;color:var(--bronze-deep);margin-right:9px}
+  p,li{margin:10px 0;font-size:16.5px;line-height:1.65;max-width:68ch}
+  ul{padding-left:20px}
+  li{margin:7px 0}
+  a{color:#9a6a1f}
+  a:hover{color:var(--ink)}
+  .callout{
+    background:#fff;border:1px solid var(--paper-line);border-left:3px solid var(--bronze);
+    border-radius:2px;padding:16px 18px;margin:18px 0;
+  }
+  .callout p{margin:0}
+  .doc-foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--paper-line);font-size:14.5px;color:var(--ink-soft)}
+  .doc-foot a{color:#9a6a1f}
+  [hidden]{display:none!important}
+
+  footer{border-top:1px solid var(--rule);padding:34px 0 44px;font-size:14.5px;color:var(--chrome-dim)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+  .foot-links{display:flex;flex-wrap:wrap;gap:12px 24px}
+  footer a{color:var(--chrome);text-decoration:none;border-bottom:1px solid transparent}
+  footer a:hover,footer a:focus-visible{color:#fff;border-bottom-color:var(--bronze)}
+
+  @media (max-width:420px){
+    .topbar .wrap{height:58px}
+    .mark{font-size:19px;letter-spacing:.12em}
+    .topnav{gap:14px;font-size:13px}
+  }
+  :focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="../">AUTIV<span>O</span></a>
+    <nav class="topnav">
+      <a href="../privacy/">Конфіденційність</a>
+      <a href="../terms/" aria-current="page">Умови</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="wrap">
+    <article class="doc">
+
+      <div class="langbar" id="langbar" hidden>
+        <button type="button" data-lang="uk" aria-pressed="true">Українська</button>
+        <button type="button" data-lang="en" aria-pressed="false">English</button>
+      </div>
+
+      <!-- ===================== UKRAINIAN ===================== -->
+      <section id="uk" lang="uk">
+        <div class="doc-head">
+          <h1>Умови користування</h1>
+          <p class="meta">Додаток AUTIVO («Сервісна книга авто») · оновлено 5 листопада 2026</p>
+        </div>
+
+        <h2><span class="n">1</span>Загальні положення</h2>
+        <p>Користуючись додатком AUTIVO, ви погоджуєтеся з цими умовами. Також застосовується <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Стандартна ліцензійна угода Apple (EULA)</a>. Якщо ви не згодні з умовами, не користуйтеся додатком.</p>
+
+        <h2><span class="n">2</span>Призначення додатка</h2>
+        <p>AUTIVO допомагає вести облік обслуговування, ремонтів, заправок і витрат на автомобіль, зберігати документи та фотографії й отримувати нагадування. Додаток є особистим помічником і не замінює офіційні документи, сервісну книжку виробника чи консультацію фахівця.</p>
+        <div class="callout">
+          <p>Нагадування та розрахунки в додатку мають довідковий характер. Ви самі відповідаєте за дотримання строків обслуговування, страхування й техогляду та за правильність введених даних.</p>
+        </div>
+
+        <h2><span class="n">3</span>Безкоштовна версія та AUTIVO PRO</h2>
+        <p>Основні можливості додатка безкоштовні. Додаткові функції відкриває <strong>AUTIVO PRO</strong>: перелік функцій і ціна показані на екрані покупки в додатку та в App Store. PRO є одноразовою покупкою без підписки.</p>
+        <ul>
+          <li>Оплата здійснюється через ваш Apple ID. Ми не отримуємо й не зберігаємо ваші платіжні дані.</li>
+          <li>Придбану покупку можна відновити на іншому пристрої з тим самим Apple ID через «Відновити покупки».</li>
+          <li>Повернення коштів розглядає Apple за своїми правилами (<a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>).</li>
+        </ul>
+
+        <h2><span class="n">4</span>Ваші дані та резервні копії</h2>
+        <p>Ваші записи, фото й документи зберігаються лише на вашому пристрої. Ви самі відповідаєте за їх збереження. Рекомендуємо користуватися резервним копіюванням пристрою (iCloud або комп’ютер) та функціями експорту в додатку. Ми не можемо відновити дані, якщо ви втратили пристрій або видалили додаток.</p>
+
+        <h2><span class="n">5</span>Допустиме використання</h2>
+        <p>Ви погоджуєтеся не використовувати додаток у незаконних цілях, не намагатися порушити його роботу та не копіювати, не змінювати й не розповсюджувати його код, окрім випадків, дозволених законом.</p>
+
+        <h2><span class="n">6</span>Інтелектуальна власність</h2>
+        <p>Права на додаток, його дизайн і назву належать розробнику. Ви отримуєте обмежену, невиключну, непередавану ліцензію на особисте некомерційне використання додатка.</p>
+
+        <h2><span class="n">7</span>Відмова від гарантій і обмеження відповідальності</h2>
+        <p>Додаток надається «як є». У межах, дозволених законом, розробник не відповідає за збитки, пов’язані з використанням або неможливістю використання додатка, втратою даних чи неточностями в записах, розрахунках, нагадуваннях і PDF-звітах. PDF-звіти створюються з даних, які ввели ви, і не є офіційним документом.</p>
+        <p>Ці умови не обмежують ваших прав як споживача, які не можуть бути обмежені за законом.</p>
+
+        <h2><span class="n">8</span>Зміни</h2>
+        <p>Ми можемо змінювати додаток і ці умови. Актуальна версія завжди доступна на цій сторінці. Продовжуючи користуватися додатком після змін, ви погоджуєтеся з новими умовами.</p>
+
+        <h2><span class="n">9</span>Застосовне право</h2>
+        <p>Ці умови регулюються законодавством України, без обмеження обов’язкових прав споживача за законодавством країни вашого проживання.</p>
+
+        <h2><span class="n">10</span>Контакти</h2>
+        <p>Serhii Brazhnik (BSV Media) · <a href="mailto:brajnik_s@ukr.net">brajnik_s@ukr.net</a></p>
+
+        <div class="doc-foot">
+          <a href="../privacy/">Політика конфіденційності</a> · <a href="../">Головна сторінка AUTIVO</a>
+        </div>
+      </section>
+
+      <!-- ===================== ENGLISH ===================== -->
+      <section id="en" lang="en">
+        <div class="doc-head">
+          <h1>Terms of Use</h1>
+          <p class="meta">AUTIVO app (Car Service Log) · last updated 5 November 2026</p>
+        </div>
+
+        <h2><span class="n">1</span>General</h2>
+        <p>By using the AUTIVO app you agree to these terms. The <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard Licensed Application EULA</a> also applies. If you do not agree, please do not use the app.</p>
+
+        <h2><span class="n">2</span>What the app is for</h2>
+        <p>AUTIVO helps you keep a record of vehicle maintenance, repairs, fuel and expenses, store documents and photos, and receive reminders. It is a personal assistant and does not replace official documents, the manufacturer’s service book or professional advice.</p>
+        <div class="callout">
+          <p>Reminders and calculations in the app are for reference only. You are responsible for meeting maintenance, insurance and inspection deadlines and for the accuracy of the data you enter.</p>
+        </div>
+
+        <h2><span class="n">3</span>Free version and AUTIVO PRO</h2>
+        <p>The core features are free. <strong>AUTIVO PRO</strong> unlocks additional features: the list of features and the price are shown on the in-app purchase screen and in the App Store. PRO is a one-time purchase, not a subscription.</p>
+        <ul>
+          <li>Payment is made through your Apple ID. We do not receive or store your payment details.</li>
+          <li>You can restore a purchase on another device signed in with the same Apple ID using “Restore Purchases”.</li>
+          <li>Refunds are handled by Apple under its own rules (<a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>).</li>
+        </ul>
+
+        <h2><span class="n">4</span>Your data and backups</h2>
+        <p>Your records, photos and documents are stored only on your device. You are responsible for keeping them safe. We recommend using device backups (iCloud or a computer) and the export features in the app. We cannot recover your data if you lose your device or delete the app.</p>
+
+        <h2><span class="n">5</span>Acceptable use</h2>
+        <p>You agree not to use the app for unlawful purposes, not to attempt to disrupt its operation, and not to copy, modify or distribute its code except as permitted by law.</p>
+
+        <h2><span class="n">6</span>Intellectual property</h2>
+        <p>Rights in the app, its design and its name belong to the developer. You receive a limited, non-exclusive, non-transferable license for personal, non-commercial use of the app.</p>
+
+        <h2><span class="n">7</span>Disclaimer and limitation of liability</h2>
+        <p>The app is provided “as is”. To the extent permitted by law, the developer is not liable for damages arising from use of, or inability to use, the app, loss of data, or inaccuracies in records, calculations, reminders and PDF reports. PDF reports are generated from data you entered and are not an official document.</p>
+        <p>These terms do not limit consumer rights that cannot be limited by law.</p>
+
+        <h2><span class="n">8</span>Changes</h2>
+        <p>We may change the app and these terms. The current version is always available on this page. By continuing to use the app after changes you accept the updated terms.</p>
+
+        <h2><span class="n">9</span>Governing law</h2>
+        <p>These terms are governed by the laws of Ukraine, without limiting mandatory consumer rights under the law of your country of residence.</p>
+
+        <h2><span class="n">10</span>Contact</h2>
+        <p>Serhii Brazhnik (BSV Media) · <a href="mailto:brajnik_s@ukr.net">brajnik_s@ukr.net</a></p>
+
+        <div class="doc-foot">
+          <a href="../privacy/">Privacy Policy</a> · <a href="../">AUTIVO home</a>
+        </div>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 BSV Media · Serhii Brazhnik</div>
+    <div class="foot-links">
+      <a href="../">Головна</a>
+      <a href="../privacy/">Конфіденційність</a>
+      <a href="mailto:brajnik_s@ukr.net">brajnik_s@ukr.net</a>
+      <a href="https://apps.apple.com/ua/app/id6806744591">App Store</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar = document.getElementById('langbar');
+  var sections = { uk: document.getElementById('uk'), en: document.getElementById('en') };
+  if (!bar || !sections.uk || !sections.en) return;
+  bar.hidden = false;
+  function show(lang){
+    for (var key in sections) {
+      sections[key].hidden = (key !== lang);
+    }
+    var buttons = bar.querySelectorAll('button');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute('aria-pressed', buttons[i].getAttribute('data-lang') === lang ? 'true' : 'false');
+    }
+    document.documentElement.lang = lang;
+  }
+  bar.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-lang]');
+    if (btn) show(btn.getAttribute('data-lang'));
+  });
+  var nav = (navigator.language || 'uk').toLowerCase();
+  show(nav.indexOf('uk') === 0 || nav.indexOf('ru') === 0 ? 'uk' : 'en');
+})();
+</script>
+</body>
+</html>
