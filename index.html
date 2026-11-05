@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AUTIVO — сервісна книга авто для iPhone</title>
+<meta name="description" content="AUTIVO — сервісна книга вашого авто в iPhone: ТО, ремонти, заправки, фото чеків, нагадування, документи та PDF-звіт для продажу.">
+<meta property="og:title" content="AUTIVO — сервісна книга авто">
+<meta property="og:description" content="Записуйте ТО, ремонти та витрати, зберігайте фото чеків і не пропускайте обслуговування.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#14181c;
+    --graphite-deep:#0e1115;
+    --paper:#f3f1ec;
+    --paper-line:#dcd7cc;
+    --ink:#1b1e22;
+    --ink-soft:#6a6f77;
+    --chrome:#9aa3ad;
+    --chrome-dim:#636b74;
+    --bronze:#c58f42;
+    --bronze-deep:#8d6227;
+    --ok:#4f8b5d;
+    --rule:#262c33;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--graphite);
+    color:#e7eaee;
+    font:400 17px/1.6 "IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+  a{color:inherit}
+
+  /* ---------- top bar ---------- */
+  .topbar{border-bottom:1px solid var(--rule)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .mark{
+    font-family:"Oswald",sans-serif;font-weight:600;font-size:22px;
+    letter-spacing:.14em;text-decoration:none;color:#fff;
+  }
+  .mark span{color:var(--bronze)}
+  .topnav{display:flex;gap:22px;font-size:14.5px}
+  .topnav a{color:var(--chrome);text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
+  .topnav a:hover,.topnav a:focus-visible{color:#fff;border-bottom-color:var(--bronze)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:68px 0 76px;
+    background:
+      radial-gradient(900px 420px at 78% 18%, rgba(197,143,66,.14), transparent 62%),
+      linear-gradient(180deg,var(--graphite) 0%,var(--graphite-deep) 100%);
+  }
+  .hero .wrap{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  @media (min-width:900px){
+    .hero .wrap{grid-template-columns:1.02fr .98fr;gap:64px}
+  }
+  h1{
+    font-family:"Oswald",sans-serif;
+    font-weight:500;
+    font-size:clamp(40px,7.2vw,68px);
+    line-height:1.02;
+    letter-spacing:.005em;
+    margin:0 0 20px;
+    color:#fff;
+    text-wrap:balance;
+  }
+  .lede{margin:0 0 30px;max-width:46ch;color:#c3c9d1;font-size:18px}
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+  .btn{
+    display:inline-flex;align-items:center;gap:11px;
+    background:var(--bronze);color:#191307;
+    font-weight:600;font-size:16.5px;text-decoration:none;
+    padding:14px 24px;border-radius:2px;
+    border:1px solid var(--bronze);
+  }
+  .btn:hover,.btn:focus-visible{background:#d8a257;border-color:#d8a257}
+  .btn svg{flex:none}
+  .cta-note{font-size:14.5px;color:var(--chrome-dim)}
+
+  /* ---------- service sheet ---------- */
+  .sheet{
+    background:var(--paper);color:var(--ink);
+    border-radius:3px;
+    padding:22px 22px 18px;
+    box-shadow:0 30px 60px -28px rgba(0,0,0,.85);
+    position:relative;
+    font-size:15px;
+  }
+  .sheet::before{
+    content:"";position:absolute;inset:0;border-radius:3px;
+    border-top:5px solid var(--graphite);pointer-events:none;
+  }
+  .sheet-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding-top:6px}
+  .sheet-title{font-family:"Oswald",sans-serif;font-size:20px;letter-spacing:.02em;margin:0}
+  .sheet-sub{margin:2px 0 0;font-size:13px;color:var(--ink-soft);font-family:"IBM Plex Mono",monospace}
+  .odo{text-align:right}
+  .odo-label{font-size:11.5px;color:var(--ink-soft);letter-spacing:.06em;margin-bottom:3px}
+  .odo-value{
+    font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:23px;
+    background:var(--graphite);color:var(--paper);
+    padding:5px 9px;border-radius:2px;display:inline-block;
+    font-variant-numeric:tabular-nums;
+  }
+  table{width:100%;border-collapse:collapse;margin-top:18px}
+  th{
+    text-align:left;font-weight:500;font-size:11.5px;color:var(--ink-soft);
+    letter-spacing:.05em;padding:0 14px 7px 0;border-bottom:1.5px solid var(--ink);
+  }
+  th:last-child,td:last-child{text-align:right;padding-right:0}
+  td{padding:11px 14px 11px 0;border-bottom:1px solid var(--paper-line);font-size:14.5px;vertical-align:baseline}
+  .job{font-weight:500}
+  .shop{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+  @media (max-width:560px){
+    .sheet{padding:18px 16px 16px;font-size:14px}
+    .odo-value{font-size:19px}
+    .sheet-title{font-size:18px}
+    th:nth-child(3),td:nth-child(3){display:none}
+    td{font-size:13.5px;padding:10px 10px 10px 0}
+    .shop::after{content:" · " attr(data-km);}
+  }
+  .num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .cost{font-family:"IBM Plex Mono",monospace;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .sheet-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:16px}
+  .next{font-size:13px;color:var(--ink-soft)}
+  .next b{color:var(--ok);font-weight:600}
+  .stamp{
+    border:1.5px solid var(--bronze-deep);color:var(--bronze-deep);
+    border-radius:2px;padding:6px 10px;text-align:center;
+    transform:rotate(-4deg);opacity:.9;flex:none;
+  }
+  .stamp-name{font-family:"Oswald",sans-serif;font-size:14px;letter-spacing:.16em;line-height:1}
+  .stamp-sub{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.08em;margin-top:3px}
+
+  /* ---------- features ---------- */
+  .features{padding:72px 0 64px;border-top:1px solid var(--rule)}
+  h2{
+    font-family:"Oswald",sans-serif;font-weight:500;
+    font-size:clamp(27px,3.4vw,36px);line-height:1.15;margin:0 0 10px;color:#fff;
+  }
+  .section-lede{margin:0 0 40px;color:var(--chrome);max-width:52ch}
+  .grid{display:grid;grid-template-columns:1fr;gap:0}
+  @media (min-width:760px){.grid{grid-template-columns:1fr 1fr;column-gap:56px}}
+  .item{padding:22px 0;border-top:1px solid var(--rule)}
+  .item h3{
+    font-family:"IBM Plex Sans",sans-serif;font-weight:600;font-size:17px;
+    margin:0 0 6px;color:#fff;
+  }
+  .item p{margin:0;color:var(--chrome);font-size:15.5px;line-height:1.55}
+
+  /* ---------- privacy strip ---------- */
+  .strip{border-top:1px solid var(--rule);padding:60px 0}
+  .strip .wrap{display:grid;grid-template-columns:1fr;gap:20px}
+  @media (min-width:760px){.strip .wrap{grid-template-columns:auto 1fr;gap:40px;align-items:start}}
+  .strip h2{margin-bottom:12px}
+  .strip p{margin:0 0 14px;color:var(--chrome);max-width:60ch}
+  .strip p:last-child{margin-bottom:0}
+  .strip a{color:var(--bronze)}
+  .keyline{
+    display:none;width:3px;background:var(--bronze);border-radius:2px;align-self:stretch;min-height:120px;
+  }
+  @media (min-width:760px){.keyline{display:block}}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--rule);padding:34px 0 44px;font-size:14.5px;color:var(--chrome-dim)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+  .foot-links{display:flex;flex-wrap:wrap;gap:12px 24px}
+  footer a{color:var(--chrome);text-decoration:none;border-bottom:1px solid transparent}
+  footer a:hover,footer a:focus-visible{color:#fff;border-bottom-color:var(--bronze)}
+
+  @media (max-width:420px){
+    .topbar .wrap{height:58px}
+    .mark{font-size:19px;letter-spacing:.12em}
+    .topnav{gap:14px;font-size:13px}
+    .next{font-size:12.5px}
+    .hero{padding:48px 0 56px}
+  }
+  :focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="./">AUTIV<span>O</span></a>
+    <nav class="topnav">
+      <a href="./privacy/">Конфіденційність</a>
+      <a href="./terms/">Умови</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Історія вашого авто, записана до останнього чека</h1>
+        <p class="lede">AUTIVO замінює паперову сервісну книжку й чеки в бардачку. Записуйте ТО, ремонти та заправки, тримайте фото документів поруч і знайте, коли наступне обслуговування.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://apps.apple.com/ua/app/id6806744591">
+            <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true"><path d="M14.7 11.6c0-2.5 2-3.7 2.1-3.8-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.1-.8-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.4 0 1.8.8 3.1.7 1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.5-1-2.5-3.6zM12.3 4.3c.7-.8 1.1-1.9 1-3-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.9-1.4z"/></svg>
+            Завантажити в App Store
+          </a>
+          <span class="cta-note">Безкоштовно · iPhone та iPad</span>
+        </div>
+      </div>
+
+      <div class="sheet" role="img" aria-label="Приклад сервісної книги: BMW 430xd, пробіг 209 917 км, останні записи про ТО та ремонти.">
+        <div class="sheet-head">
+          <div>
+            <p class="sheet-title">BMW 430xd</p>
+            <p class="sheet-sub">2016 · AA 1234 AA</p>
+          </div>
+          <div class="odo">
+            <div class="odo-label">Пробіг</div>
+            <div class="odo-value" id="odo">209 917 км</div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Дата</th><th>Робота</th><th>Пробіг</th><th>Вартість</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">21.08.26</td>
+              <td><span class="job">ТО</span><span class="shop" data-km="209 917 км">СТО Boost</span></td>
+              <td class="num">209 917</td>
+              <td class="cost">3 900 ₴</td>
+            </tr>
+            <tr>
+              <td class="num">03.06.26</td>
+              <td><span class="job">Ремонт ДВЗ</span><span class="shop" data-km="204 800 км">7 фото чеків</span></td>
+              <td class="num">204 800</td>
+              <td class="cost">85 500 ₴</td>
+            </tr>
+            <tr>
+              <td class="num">19.05.26</td>
+              <td><span class="job">Заміна оливи</span><span class="shop" data-km="203 000 км">СТО Boost</span></td>
+              <td class="num">203 000</td>
+              <td class="cost">4 620 ₴</td>
+            </tr>
+            <tr>
+              <td class="num">28.04.26</td>
+              <td><span class="job">Резина Michelin</span><span class="shop" data-km="197 000 км">Комплект</span></td>
+              <td class="num">197 000</td>
+              <td class="cost">7 000 ₴</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="sheet-foot">
+          <div class="next">Наступне ТО через 5 083 км — <b>у нормі</b></div>
+          <div class="stamp">
+            <div class="stamp-name">AUTIVO</div>
+            <div class="stamp-sub">PDF-ЗВІТ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="wrap">
+      <h2>Що додаток робить за вас</h2>
+      <p class="section-lede">Одне місце для всього, що зазвичай губиться: дати, суми, чеки й строки документів.</p>
+
+      <div class="grid">
+        <div class="item">
+          <h3>Записи про кожну роботу</h3>
+          <p>ТО, ремонти, тюнінг, мийка, діагностика та заправки — з датою, пробігом, вартістю й назвою СТО.</p>
+        </div>
+        <div class="item">
+          <h3>Фото чеків і деталей</h3>
+          <p>Додавайте знімки квитанцій, актів робіт і знятих деталей до запису та відкривайте їх зі збільшенням.</p>
+        </div>
+        <div class="item">
+          <h3>Нагадування про ТО</h3>
+          <p>Додаток стежить за пробігом і датами й попереджає про заміну оливи чи планову роботу заздалегідь.</p>
+        </div>
+        <div class="item">
+          <h3>Документи та страховка</h3>
+          <p>Автоцивілка, КАСКО, техогляд і Зелена карта — зі сповіщенням, коли строк добігає кінця.</p>
+        </div>
+        <div class="item">
+          <h3>Витрати як на долоні</h3>
+          <p>Структура витрат за категоріями й місяцями, середня витрата пального та вартість одного кілометра.</p>
+        </div>
+        <div class="item">
+          <h3>PDF-звіт для продажу</h3>
+          <p>Повна історія обслуговування одним файлом — показати покупцеві авто або новому сервісу.</p>
+        </div>
+        <div class="item">
+          <h3>Гараж на кілька машин</h3>
+          <p>Авто, мотоцикли й вантажні — кожне зі своїм пробігом, документами та історією.</p>
+        </div>
+        <div class="item">
+          <h3>Резервна копія</h3>
+          <p>Збереження всієї бази у файл і відновлення на іншому пристрої, коли ви того захочете.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="wrap">
+      <div class="keyline" aria-hidden="true"></div>
+      <div>
+        <h2>Дані лишаються на вашому телефоні</h2>
+        <p>Записи, фотографії та документи зберігаються на пристрої. Реєстрація не потрібна, а ми не маємо серверів, куди б потрапляла історія вашого авто.</p>
+        <p>Докладніше — у <a href="./privacy/">політиці конфіденційності</a> та <a href="./terms/">умовах користування</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 BSV Media · Serhii Brazhnik</div>
+    <div class="foot-links">
+      <a href="./privacy/">Конфіденційність</a>
+      <a href="./terms/">Умови користування</a>
+      <a href="mailto:brajnik_s@ukr.net">brajnik_s@ukr.net</a>
+      <a href="https://apps.apple.com/ua/app/id6806744591">App Store</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var el = document.getElementById('odo');
+  if (!el) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var target = 209917, start = 209300, t0 = null, dur = 1100;
+  function fmt(n){ return n.toLocaleString('uk-UA').replace(/ /g,' ') + ' км'; }
+  function step(ts){
+    if (t0 === null) t0 = ts;
+    var p = Math.min((ts - t0) / dur, 1);
+    var eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = fmt(Math.round(start + (target - start) * eased));
+    if (p < 1) requestAnimationFrame(step);
+  }
+  el.textContent = fmt(start);
+  requestAnimationFrame(step);
+})();
+</script>
+</body>
+</html>
